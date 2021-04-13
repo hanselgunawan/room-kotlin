@@ -1,5 +1,6 @@
 package com.hanseltritama.roomkotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.hanseltritama.roomkotlin.db.Address
@@ -11,9 +12,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupUI()
     }
 
-    fun saveDataToDB() {
+    fun setupUI() {
         submit_button.setOnClickListener {
             val name = user_profile_name.text.toString()
             val phone = user_profile_phone.text.toString()
@@ -28,6 +30,9 @@ class MainActivity : AppCompatActivity() {
             val id = userDao?.insertUser(userEntity)
             val addressEntity = Address(0, id!!.toInt(), address, city, state, zip)
             userDao?.insertAddress(addressEntity)
+
+            startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+            finish()
         }
     }
 }
