@@ -3,7 +3,7 @@ package com.hanseltritama.roomkotlin.db
 import android.content.Context
 import androidx.room.*
 
-@Database(entities = [UserEntity::class], version = 1)
+@Database(entities = [UserEntity::class, Address::class], version = 1, exportSchema = false)
 abstract class RoomAppDB : RoomDatabase() {
 
     abstract fun userDao(): UserProfileDao?

@@ -16,7 +16,7 @@ interface UserProfileDao {
     @Insert
     fun insertAddress(user: Address)
 
-    @Query("SELECT * FROM user INNER JOIN address ON user.id = Address.user_id")
+    @Query("SELECT * FROM user INNER JOIN address ON user.id = address.user_id")
     fun getAllUserWithAddress(): List<UserWithAddress>?
 
 }
