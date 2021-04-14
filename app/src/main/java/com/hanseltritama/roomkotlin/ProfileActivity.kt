@@ -21,8 +21,8 @@ class ProfileActivity : AppCompatActivity() {
             profile_email.append("Email: ${it.email}\n")
             profile_address.append("Address: ${it.address}\n")
             profile_address_city.append("City: ${it.city}\n")
-            profile_address_state.append("Name: ${it.state}\n")
-            profile_address_zip.append("Name: ${it.zip}\n")
+            profile_address_state.append("State: ${it.state}\n")
+            profile_address_zip.append("Zip Code: ${it.zip}\n")
         }
     }
 }
